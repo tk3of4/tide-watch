@@ -22,108 +22,31 @@
   <body>
     <div id="container"></div>
     <div id="vue-app">
-        <div class="demonstrator row mt-2">
-            <div class="demonstrator-inputs col d-flex">
-                <div class="p-2">
-                    <h6>Lower Level</h4>
-                    <div class="demonstrator-tank p-2" data-min="0", data-max="10" data-value="5"></div>
-                </div>
-                <div class="p-2">
-                    <h6>Upper Level</h4>
-                    <div class="demonstrator-tank p-2" data-min="0", data-max="10" data-value="7"></div>
-                </div>
-            </div>
-            <div class="demonstrator-chart col">
-                chart
-            </div>
-        </div>
-        </div>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+      <div class="demonstrator row mt-2">
+          <div class="demonstrator-inputs col d-flex">
+              <div class="p-2">
+                  <h6>Lower Level</h4>
+                  <div class="demonstrator-tank p-2" data-min="0", data-max="10" data-value="5"></div>
+              </div>
+              <div class="p-2">
+                  <h6>Upper Level</h4>
+                  <div class="demonstrator-tank p-2" data-min="0", data-max="10" data-value="7"></div>
+              </div>
+          </div>
+          <div class="demonstrator-chart col">
+              chart
+          </div>
+      </div>
+      <div id="the-demo-app" class="p-3">
+        <demo-tank :config="tankConfig" v-bind:level.sync="topLevel"></demo-tank>
+        <p>{{ topLevel }}</p>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
     <script src="https://unpkg.com/konva@8/konva.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js" integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<!--     <script>
-      var width = window.innerWidth;
-      var height = window.innerHeight;
 
-      var stage = new Konva.Stage({
-        container: 'container',
-        width: 500,
-        height: 500,
-      });
-
-      var layer = new Konva.Layer();
-
-      /*
-       * leave center point positioned
-       * at the default which is the top left
-       * corner of the rectangle
-       */
-
-      var blueRect = new Konva.Rect({
-        x: 50,
-        y: 75,
-        width: 100,
-        height: 50,
-        fill: '#00D2FF',
-        stroke: 'black',
-        strokeWidth: 4,
-      });
-
-      /*
-       * move center point to the center
-       * of the rectangle with offset
-       */
-      var yellowRect = new Konva.Rect({
-        x: 220,
-        y: 75,
-        width: 100,
-        height: 50,
-        fill: 'yellow',
-        stroke: 'black',
-        strokeWidth: 4,
-        offset: {
-          x: 50,
-          y: 25,
-        },
-      });
-
-      /*
-       * move center point outside of the rectangle
-       * with offset
-       */
-
-      var redRect = new Konva.Rect({
-        x: 400,
-        y: 75,
-        width: 100,
-        height: 50,
-        fill: 'red',
-        stroke: 'black',
-        strokeWidth: 4,
-        offset: {
-          x: -100,
-          y: 0,
-        },
-      });
-
-      layer.add(blueRect);
-      layer.add(yellowRect);
-      layer.add(redRect);
-      stage.add(layer);
-
-      // one revolution per 4 seconds
-      var angularSpeed = 90;
-      var anim = new Konva.Animation(function (frame) {
-        var angleDiff = (frame.timeDiff * angularSpeed) / 1000;
-        blueRect.rotate(angleDiff);
-        yellowRect.rotate(angleDiff);
-        redRect.rotate(angleDiff);
-      }, layer);
-
-      anim.start();
-    </script>
- -->
     <script type="importmap">
         {
             "imports": { 
@@ -133,29 +56,8 @@
     </script>
 
     <script src="demonstrators.js"></script>
-    <script type="module">
+    <script>
         demos.add(".demonstrator-tank");
-
-/*         import { createApp } from "vue";
-
-        createApp({
-            data() {
-                return { 
-                    configKonva: { 
-                        width: 200,
-                        height: 200
-                    },
-                    configCircl: {
-                        x: 100, 
-                        y: 100,
-                        radius: 70,
-                        fill: "red",
-                        stroke: "black",
-                        strokeWidth: 4
-                    }
-                };
-            }
-        }).mount("#vue-app");
- */    </script>
+    </script>
   </body>
 </html>
